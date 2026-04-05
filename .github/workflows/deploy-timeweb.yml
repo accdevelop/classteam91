@@ -8,7 +8,8 @@
 #   На Timeweb каталог сайта часто такой (проверь в FileZilla):
 #     domains/classteam91.ru/public_html
 #   Со слэшем в конце или без — workflow сам добавит /.
-#   LIVE_SITE_URL — (опционально) URL проверки после деплоя; по умолчанию https://classteam91.ru
+#   LIVE_SITE_URL — (опционально) URL проверки после деплоя; по умолчанию http://classteam91.ru
+#   (если на Timeweb ещё нет валидного HTTPS, curl с https даёт exit 60 — SSL certificate problem)
 #
 # FTPS: если Deploy падает на соединении — раскомментируй protocol ниже.
 #
@@ -117,7 +118,7 @@ jobs:
 
       - name: Проверка — с сайта отдаётся тот же index.html, что в dist
         run: |
-          SITE="${VERIFY_URL:-https://classteam91.ru}"
+          SITE="${VERIFY_URL:-http://classteam91.ru}"
           LOCAL_SHA=$(sha256sum dist/index.html | cut -d' ' -f1)
           curl -fsSL "$SITE/?_=$(date +%s)" -o /tmp/live.html
           REMOTE_SHA=$(sha256sum /tmp/live.html | cut -d' ' -f1)
