@@ -1,0 +1,133 @@
+# Автодеплой на Timeweb: push в main → build → загрузка dist/ по FTP.
+#
+# Secrets (Settings → Secrets and variables → Actions → Secrets):
+#   TIMEWEB_FTP_HOST, TIMEWEB_FTP_USER, TIMEWEB_FTP_PASSWORD
+#
+# Переменная репозитория (та же страница → вкладка Variables):
+#   TIMEWEB_FTP_REMOTE_DIR — относительный путь от корня FTP до папки с index.html сайта.
+#   На Timeweb каталог сайта часто такой (проверь в FileZilla):
+#     domains/classteam91.ru/public_html
+#   Со слэшем в конце или без — workflow сам добавит /.
+#   LIVE_SITE_URL — (опционально) URL проверки после деплоя; по умолчанию https://classteam91.ru
+#
+# FTPS: если Deploy падает на соединении — раскомментируй protocol ниже.
+#
+# Sync-state: у каждого запуска своё имя файла (state-name) — экшен всегда делает полную
+# заливку, а не «пропуск по хешу». Старый .ftp-deploy-sync-state.json перед деплоем
+# удаляем через lftp.
+#
+# Важно: cancel-in-progress: false — иначе новый push (например сразу после Decap)
+# отменяет предыдущий деплой на полпути, и на сервере остаётся старая версия.
+
+name: Deploy to Timeweb
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-timeweb
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: CMS snapshot (data/content.json at this commit)
+        run: |
+          git log -1 --oneline
+          node -e "const fs=require('fs');const j=JSON.parse(fs.readFileSync('data/content.json','utf8'));const h=j.home||{};console.log('home.hero_badge:',(h.hero_badge||'(пусто)').toString().slice(0,100));"
+
+      - name: Install and build
+        run: |
+          npm ci
+          npm run build
+          ls -la dist/
+          echo -n "data/content.json sha256: "; sha256sum data/content.json | cut -d' ' -f1
+          echo -n "dist/index.html bytes: "; wc -c < dist/index.html
+          echo -n "dist/index.html sha256: "; sha256sum dist/index.html | cut -d' ' -f1
+
+      # FTP-Deploy-Action: server-dir обязан заканчиваться на /
+      - name: Normalize FTP server-dir
+        id: remote
+        env:
+          RAW: ${{ vars.TIMEWEB_FTP_REMOTE_DIR }}
+        run: |
+          if [ -z "$RAW" ]; then
+            OUT="./"
+          else
+            OUT="$RAW"
+            case "$OUT" in
+              */) ;;
+              *) OUT="${OUT}/" ;;
+            esac
+          fi
+          {
+            echo "dir<<REMOTE_EOF"
+            echo -n "$OUT"
+            echo ""
+            echo "REMOTE_EOF"
+          } >> "$GITHUB_OUTPUT"
+          echo "FTP server-dir will be: $OUT"
+
+      - name: Delete old FTP sync state on server (lftp)
+        env:
+          FTP_HOST: ${{ secrets.TIMEWEB_FTP_HOST }}
+          FTP_USER: ${{ secrets.TIMEWEB_FTP_USER }}
+          FTP_PASS: ${{ secrets.TIMEWEB_FTP_PASSWORD }}
+          REMOTE_DIR: ${{ steps.remote.outputs.dir }}
+        run: |
+          set -e
+          sudo DEBIAN_FRONTEND=noninteractive apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq lftp
+          R=$(printf '%s' "$REMOTE_DIR" | sed 's#^\./##' | sed 's#/$##')
+          if [ -z "$R" ] || [ "$R" = "." ]; then
+            LFTP_CD="cd ."
+          else
+            LFTP_CD="cd $R"
+          fi
+          echo "lftp: $LFTP_CD → rm -f .ftp-deploy-sync-state.json"
+          lftp -u "$FTP_USER,$FTP_PASS" -e "set ssl:verify-certificate no; set net:max-retries 5; $LFTP_CD; rm -f .ftp-deploy-sync-state.json; bye" "ftp://$FTP_HOST"
+
+      - name: Deploy to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.TIMEWEB_FTP_HOST }}
+          username: ${{ secrets.TIMEWEB_FTP_USER }}
+          password: ${{ secrets.TIMEWEB_FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ${{ steps.remote.outputs.dir }}
+          # Новое имя при каждом run → нет «кэша» по хешам, всегда полная заливка
+          state-name: deploy-state-${{ github.run_id }}-${{ github.run_attempt }}
+          # protocol: ftps-legacy
+          # port: 21
+          log-level: standard
+
+      - name: Проверка — с сайта отдаётся тот же index.html, что в dist
+        run: |
+          SITE="${VERIFY_URL:-https://classteam91.ru}"
+          LOCAL_SHA=$(sha256sum dist/index.html | cut -d' ' -f1)
+          curl -fsSL "$SITE/?_=$(date +%s)" -o /tmp/live.html
+          REMOTE_SHA=$(sha256sum /tmp/live.html | cut -d' ' -f1)
+          echo "local  sha256=$LOCAL_SHA ($(wc -c < dist/index.html) bytes)"
+          echo "remote sha256=$REMOTE_SHA ($(wc -c < /tmp/live.html) bytes)"
+          if [ "$LOCAL_SHA" != "$REMOTE_SHA" ]; then
+            echo "::error::С сервера отдаётся ДРУГОЙ index.html — деплой ушёл не в ту папку."
+            echo "Задай Variables → TIMEWEB_FTP_REMOTE_DIR = domains/classteam91.ru/public_html (или полный путь из FileZilla до папки с рабочим index.html)."
+            exit 1
+          fi
+          echo "OK: хеш index.html совпадает с продакшеном."
+        env:
+          VERIFY_URL: ${{ vars.LIVE_SITE_URL }}
