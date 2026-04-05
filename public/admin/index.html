@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <base href="/admin/" />
+  <title>Админ-панель</title>
+</head>
+<body>
+  <!-- Версия без ^ — иначе unpkg мог подтянуть неожиданный минор; OAuth ломается тихо -->
+  <script src="https://unpkg.com/decap-cms@3.11.0/dist/decap-cms.js"></script>
+  <script>
+    (function () {
+      fetch(location.origin + "/admin/config.yml", { cache: "no-store" })
+        .then(function (r) { return r.text(); })
+        .then(function (t) {
+          if (!/base_url:\s*https?:\/\/\S+/.test(t)) {
+            console.warn("[CMS] В config.yml нет base_url — вход уйдёт на Netlify и будет Not Found.");
+          }
+        })
+        .catch(function () {
+          console.warn("[CMS] Не удалось загрузить /admin/config.yml");
+        });
+    })();
+  </script>
+</body>
+</html>

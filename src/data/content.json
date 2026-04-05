@@ -1,0 +1,457 @@
+{
+  "cards": [
+    {
+      "title": "9А",
+      "description": "Техническое направление",
+      "count": 28,
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    },
+    {
+      "title": "9Б",
+      "description": "Гуманитарное направление",
+      "count": 26,
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    },
+    {
+      "title": "10А",
+      "description": "Естественнонаучное направление",
+      "count": 24,
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    },
+    {
+      "title": "10Б",
+      "description": "Социально-экономическое направление",
+      "count": 25,
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    },
+    {
+      "title": "11А",
+      "description": "Инженерно-технологическое",
+      "count": 22,
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    },
+    {
+      "title": "11Б",
+      "description": "Креативные индустрии",
+      "count": 23,
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    },
+    {
+      "title": "Урбанистика будущего",
+      "subtitle": "10 класс",
+      "description": "Проект по разработке концепции «умного» микрорайона Санкт-Петербурга.",
+      "stage": "В процессе",
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    },
+    {
+      "title": "Экологический мониторинг",
+      "subtitle": "9 класс",
+      "description": "Исследование экологической обстановки в районе школы с помощью датчиков.",
+      "stage": "Завершён",
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    },
+    {
+      "title": "Школьный медиацентр",
+      "subtitle": "11 класс",
+      "description": "Создание полноценного медиацентра с подкастами, видео и журналом.",
+      "stage": "В процессе",
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    },
+    {
+      "title": "Робот-помощник",
+      "subtitle": "10 класс",
+      "description": "Разработка робота-ассистента для школьной библиотеки.",
+      "stage": "Старт",
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    },
+    {
+      "title": "Социальный бизнес-план",
+      "subtitle": "11 класс",
+      "description": "Разработка бизнес-плана социального предприятия для помощи пожилым людям.",
+      "stage": "В процессе",
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    },
+    {
+      "title": "VR-экскурсия по Петербургу",
+      "subtitle": "9 класс",
+      "description": "Создание виртуальной экскурсии по историческим местам города.",
+      "stage": "Завершён",
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    },
+    {
+      "title": "Судостроительное предприятие",
+      "subtitle": "Судостроение",
+      "description": "Одно из крупнейших судостроительных предприятий России.",
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    },
+    {
+      "title": "Биотехнологическая компания",
+      "subtitle": "Биотехнологии",
+      "description": "Ведущая биотехнологическая компания, разрабатывающая лекарственные препараты.",
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    },
+    {
+      "title": "Энергетическая компания",
+      "subtitle": "Энергетика",
+      "description": "Крупная энергетическая компания с подразделениями в Санкт-Петербурге.",
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    },
+    {
+      "title": "IT-компания",
+      "subtitle": "IT",
+      "description": "Петербургский офис ведущей IT-компании России.",
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    },
+    {
+      "title": "Машиностроительный завод",
+      "subtitle": "Машиностроение",
+      "description": "Историческое предприятие тяжёлого машиностроения.",
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    },
+    {
+      "title": "Музей-партнёр",
+      "subtitle": "Культура",
+      "description": "Крупнейший музей — место работы реставраторов, искусствоведов и хранителей.",
+      "button_text": "Подробнее",
+      "link": "",
+      "modal_content": ""
+    }
+  ],
+  "contacts": [
+    {
+      "type": "Адрес",
+      "value": "г. Санкт-Петербург",
+      "icon": "",
+      "sub": "Кабинет профориентации — 2 этаж"
+    },
+    {
+      "type": "Телефон",
+      "value": "Номер телефона",
+      "icon": "",
+      "sub": "Пн–Пт: 8:00 – 18:00"
+    },
+    {
+      "type": "Электронная почта",
+      "value": "Email школы",
+      "icon": "",
+      "sub": "Ответим в течение рабочего дня"
+    },
+    {
+      "type": "Режим работы",
+      "value": "Пн–Пт: 8:00 – 18:00",
+      "icon": "",
+      "sub": ""
+    }
+  ],
+  "text_blocks": [],
+  "project_practices": [
+    {
+      "title": "Урбанистика будущего",
+      "preview_text": "Проект по разработке концепции «умного» микрорайона.",
+      "full_content": "## Урбанистика будущего\n\nЗдесь — полное описание проекта: задачи, этапы, результаты. Можно добавить списки, **выделение** и ссылки через поле «Внешняя ссылка».",
+      "content_type": "text",
+      "media": [],
+      "external_link": "",
+      "icon": "📌"
+    },
+    {
+      "title": "Экологический мониторинг",
+      "preview_text": "Исследование экологии района школы.",
+      "full_content": "Полная информация об экологическом мониторинге и датчиках.",
+      "content_type": "text",
+      "media": [],
+      "external_link": "",
+      "icon": "📌"
+    },
+    {
+      "title": "Школьный медиацентр",
+      "preview_text": "Подкасты, видео, журнал.",
+      "full_content": "Описание медиацентра и направлений работы учеников.",
+      "content_type": "text",
+      "media": [],
+      "external_link": "",
+      "icon": "📌"
+    },
+    {
+      "title": "Робот-помощник",
+      "preview_text": "Робот для библиотеки.",
+      "full_content": "Техническое задание и ход разработки робота-ассистента.",
+      "content_type": "text",
+      "media": [],
+      "external_link": "",
+      "icon": "📌"
+    },
+    {
+      "title": "Социальный бизнес-план",
+      "preview_text": "Проект для пожилых людей.",
+      "full_content": "Полное описание социального предпринимательского проекта.",
+      "content_type": "text",
+      "media": [],
+      "external_link": "",
+      "icon": "📌"
+    },
+    {
+      "title": "VR-экскурсия по Петербургу",
+      "preview_text": "Виртуальные маршруты.",
+      "full_content": "Информация о VR-проекте и исторических локациях.",
+      "content_type": "text",
+      "media": [],
+      "external_link": "",
+      "icon": "📌"
+    }
+  ],
+  "communities": [
+    {
+      "name": "9А",
+      "description": "Техническое направление",
+      "full_info": "## Класс 9А\n\nРасписание и активности класса.",
+      "schedule": "",
+      "signup_link": "",
+      "contact": ""
+    },
+    {
+      "name": "9Б",
+      "description": "Гуманитарное направление",
+      "full_info": "## Класс 9Б\n\nПодробности о профиле.",
+      "schedule": "",
+      "signup_link": "",
+      "contact": ""
+    },
+    {
+      "name": "10А",
+      "description": "Естественнонаучное направление",
+      "full_info": "## Класс 10А",
+      "schedule": "",
+      "signup_link": "",
+      "contact": ""
+    },
+    {
+      "name": "10Б",
+      "description": "Социально-экономическое направление",
+      "full_info": "## Класс 10Б",
+      "schedule": "",
+      "signup_link": "",
+      "contact": ""
+    },
+    {
+      "name": "11А",
+      "description": "Инженерно-технологическое",
+      "full_info": "## Класс 11А",
+      "schedule": "",
+      "signup_link": "",
+      "contact": ""
+    },
+    {
+      "name": "11Б",
+      "description": "Креативные индустрии",
+      "full_info": "## Класс 11Б",
+      "schedule": "",
+      "signup_link": "",
+      "contact": ""
+    }
+  ],
+  "journal_companies": [
+    {
+      "name": "Судостроительное предприятие",
+      "short_desc": "Судостроение",
+      "full_article": "## Предприятие\n\nПолный материал о заводе.",
+      "source_link": ""
+    },
+    {
+      "name": "Биотехнологическая компания",
+      "short_desc": "Биотехнологии",
+      "full_article": "## Компания\n\nОписание деятельности.",
+      "source_link": ""
+    },
+    {
+      "name": "Энергетическая компания",
+      "short_desc": "Энергетика",
+      "full_article": "## Энергетика\n\nПодробности.",
+      "source_link": ""
+    },
+    {
+      "name": "IT-компания",
+      "short_desc": "IT",
+      "full_article": "## IT\n\nОфис в Петербурге.",
+      "source_link": ""
+    },
+    {
+      "name": "Машиностроительный завод",
+      "short_desc": "Машиностроение",
+      "full_article": "## Завод\n\nИстория и направления.",
+      "source_link": ""
+    },
+    {
+      "name": "Музей-партнёр",
+      "short_desc": "Культура",
+      "full_article": "## Музей\n\nПрофессии в музее.",
+      "source_link": ""
+    }
+  ],
+  "journal_interviews": [
+    {
+      "title": "Интервью: медицина",
+      "preview": "Цитата из интервью.",
+      "content": "## Полный текст\n\nРазвёрнутое интервью с специалистом.",
+      "media": ""
+    },
+    {
+      "title": "Интервью: IT",
+      "preview": "О данных и профессии.",
+      "content": "## Полный текст\n\nИнтервью с IT-специалистом.",
+      "media": ""
+    },
+    {
+      "title": "Интервью: архитектура",
+      "preview": "О среде обитания.",
+      "content": "## Полный текст",
+      "media": ""
+    },
+    {
+      "title": "Интервью: бизнес",
+      "preview": "О стартапах.",
+      "content": "## Полный текст",
+      "media": ""
+    },
+    {
+      "title": "Интервью: кино",
+      "preview": "О кинематографе.",
+      "content": "## Полный текст",
+      "media": ""
+    },
+    {
+      "title": "Интервью: биотех",
+      "preview": "О будущем медицины.",
+      "content": "## Полный текст",
+      "media": ""
+    }
+  ],
+  "events": [
+    {
+      "title": "День профессий",
+      "full_content": "## День профессий\n\nПодробная программа, партнёры, итоги.",
+      "content_type": "text",
+      "media": [],
+      "external_link": ""
+    },
+    {
+      "title": "Диалог с мастером: IT",
+      "full_content": "## Встреча\n\nО чём говорили, материалы.",
+      "content_type": "text",
+      "media": [],
+      "external_link": ""
+    },
+    {
+      "title": "Экскурсия на производство",
+      "full_content": "## Экскурсия\n\nМаршрут и впечатления.",
+      "content_type": "text",
+      "media": [],
+      "external_link": ""
+    },
+    {
+      "title": "Ярмарка учебных фирм",
+      "full_content": "## Ярмарка\n\nУчастники и проекты.",
+      "content_type": "text",
+      "media": [],
+      "external_link": ""
+    },
+    {
+      "title": "Мастер-класс: Дизайн-мышление",
+      "full_content": "## Воркшоп\n\nПрограмма и результаты.",
+      "content_type": "text",
+      "media": [],
+      "external_link": ""
+    },
+    {
+      "title": "Профориентационная неделя",
+      "full_content": "## Неделя\n\nРасписание мероприятий.",
+      "content_type": "text",
+      "media": [],
+      "external_link": ""
+    }
+  ],
+  "office_features": [
+    {
+      "title": "Тест Голланда",
+      "preview_text": "Тип личности",
+      "full_content": "## Тест Голланда\n\nКак проходит, как интерпретировать результаты.",
+      "content_type": "text",
+      "media": [],
+      "external_link": ""
+    },
+    {
+      "title": "Тест Климова",
+      "preview_text": "ДДО",
+      "full_content": "## Климов\n\nОписание методики.",
+      "content_type": "text",
+      "media": [],
+      "external_link": ""
+    },
+    {
+      "title": "Склонности",
+      "preview_text": "Комплексная методика",
+      "full_content": "## Тест\n\nПодробности.",
+      "content_type": "text",
+      "media": [],
+      "external_link": ""
+    },
+    {
+      "title": "Карта интересов",
+      "preview_text": "29 областей",
+      "full_content": "## Карта интересов\n\nИнструкция.",
+      "content_type": "text",
+      "media": [],
+      "external_link": ""
+    },
+    {
+      "title": "Якоря карьеры Шейна",
+      "preview_text": "Мотивация",
+      "full_content": "## Шейн\n\nТеория и применение.",
+      "content_type": "text",
+      "media": [],
+      "external_link": ""
+    },
+    {
+      "title": "Проф. готовность",
+      "preview_text": "Опросник",
+      "full_content": "## Готовность\n\nКак читать результаты.",
+      "content_type": "text",
+      "media": [],
+      "external_link": ""
+    }
+  ]
+}

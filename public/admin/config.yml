@@ -1,0 +1,1084 @@
+site_url: https://classteam91.ru/admin/
+backend:
+  name: github
+  repo: lunarcelestia/school-site
+  branch: main
+  auth_scope: repo
+  client_id: Ov23lioi2UR34VfG5JHG
+  base_url: https://decap-proxy.school91-decap.workers.dev
+  auth_endpoint: auth
+media_folder: public/images
+public_folder: /images
+collections:
+  - name: content
+    label: Контент сайта
+    files:
+      - label: Весь сайт (data/content.json)
+        name: site-content
+        file: data/content.json
+        format: json
+        fields:
+          - label: Главная страница
+            name: home
+            widget: object
+            collapsed: false
+            fields:
+              - label: Бейдж над заголовком
+                name: hero_badge
+                widget: string
+              - label: Заголовок — строка 1
+                name: hero_title_line1
+                widget: string
+              - label: Акцент в заголовке
+                name: hero_title_accent
+                widget: string
+              - label: Заголовок — строка 2
+                name: hero_title_line2
+                widget: string
+              - label: Текст основной кнопки
+                name: primary_cta
+                widget: string
+              - label: Текст второй кнопки
+                name: secondary_cta
+                widget: string
+              - label: Заголовок описания
+                name: description_title
+                widget: string
+              - label: Текст описания
+                name: description_text
+                widget: text
+              - label: Статус программы
+                name: program_status
+                widget: string
+              - label: Заголовок блока презентации
+                name: presentation_title
+                widget: string
+              - label: Подзаголовок презентации
+                name: presentation_subtitle
+                widget: text
+              - label: Заголовок «О практике»
+                name: about_title
+                widget: string
+              - label: Абзацы «О практике»
+                name: about_paragraphs
+                widget: list
+                label_singular: абзац
+                field:
+                  label: Строка
+                  name: line
+                  widget: string
+              - label: Заголовок карточки направлений
+                name: directions_card_title
+                widget: string
+              - label: Подпись под направлениями
+                name: directions_footer
+                widget: string
+              - label: Ключевые направления
+                name: directions
+                widget: list
+                label_singular: пункт
+                field:
+                  label: Строка
+                  name: line
+                  widget: string
+              - label: Заголовок призыва (CTA)
+                name: cta_title
+                widget: string
+              - label: Подзаголовок CTA
+                name: cta_subtitle
+                widget: text
+              - label: Текст кнопки CTA
+                name: cta_button
+                widget: string
+              - label: Заголовок секции тьюторов
+                name: tutors_section_title
+                widget: string
+              - label: Подзаголовок секции тьюторов
+                name: tutors_section_subtitle
+                widget: text
+              - label: Заголовок блока контактов
+                name: contacts_section_title
+                widget: string
+              - label: Подзаголовок блока контактов
+                name: contacts_section_subtitle
+                widget: text
+              - label: Заголовок плейсхолдера карты
+                name: map_placeholder_title
+                widget: string
+              - label: Подзаголовок карты
+                name: map_placeholder_subtitle
+                widget: string
+              - label: Заголовок «Локация в школе»
+                name: location_section_title
+                widget: string
+              - label: Подзаголовок локации
+                name: location_section_subtitle
+                widget: text
+              - label: Статистика
+                name: stats
+                widget: list
+                label_singular: пункт
+                fields:
+                  - label: Число / значение
+                    name: number
+                    widget: string
+                  - label: Подпись
+                    name: label
+                    widget: string
+                  - label: Класс цвета (Tailwind)
+                    name: color
+                    widget: string
+              - label: Карточки преимуществ
+                name: features
+                widget: list
+                label_singular: карточка
+                fields:
+                  - label: Иконка (Lucide)
+                    name: icon
+                    widget: string
+                    hint: Target, Compass, BookOpen…
+                  - label: Заголовок
+                    name: title
+                    widget: string
+                  - label: Описание
+                    name: desc
+                    widget: text
+                  - label: Градиент (Tailwind)
+                    name: color
+                    widget: string
+              - label: Тьюторы (карточки на главной)
+                name: tutors
+                widget: list
+                label_singular: тьютор
+                fields:
+                  - label: Роль
+                    name: role
+                    widget: string
+                  - label: Зона
+                    name: area
+                    widget: string
+              - label: Помещения на главной
+                name: rooms
+                widget: list
+                label_singular: помещение
+                required: false
+                fields:
+                  - label: Название
+                    name: name
+                    widget: string
+                  - label: Где находится
+                    name: loc
+                    widget: string
+                  - label: Описание
+                    name: desc
+                    widget: text
+          - label: Сообщества (тексты раздела)
+            name: communitiesPage
+            widget: object
+            collapsed: true
+            fields:
+              - label: Заголовок героя
+                name: hero_title
+                widget: string
+              - label: Подзаголовок героя
+                name: hero_subtitle
+                widget: text
+              - label: "Секция: учащиеся — заголовок"
+                name: students_section_title
+                widget: string
+              - label: "Секция: учащиеся — подзаголовок"
+                name: students_section_subtitle
+                widget: text
+              - label: "Секция: тьюторы — заголовок"
+                name: tutors_section_title
+                widget: string
+              - label: "Секция: тьюторы — подзаголовок"
+                name: tutors_section_subtitle
+                widget: text
+              - label: "Секция: родители — заголовок"
+                name: parents_section_title
+                widget: string
+              - label: "Секция: родители — подзаголовок"
+                name: parents_section_subtitle
+                widget: text
+              - label: "Секция: партнёры — заголовок"
+                name: partners_section_title
+                widget: string
+              - label: "Секция: партнёры — подзаголовок"
+                name: partners_section_subtitle
+                widget: text
+              - label: Классы (таблица учащихся)
+                name: students
+                widget: list
+                label_singular: класс
+                fields:
+                  - label: Класс
+                    name: grade
+                    widget: string
+                  - label: Численность
+                    name: count
+                    widget: number
+                    value_type: int
+                  - label: Направление
+                    name: focus
+                    widget: string
+              - label: Список тьюторов (вкладка)
+                name: tutorsList
+                widget: list
+                label_singular: тьютор
+                fields:
+                  - label: Предмет / роль
+                    name: subject
+                    widget: string
+                  - label: Направление
+                    name: area
+                    widget: string
+              - label: Роли родителей
+                name: parentRoles
+                widget: list
+                label_singular: роль
+                fields:
+                  - label: Название
+                    name: title
+                    widget: string
+                  - label: Описание
+                    name: desc
+                    widget: text
+              - label: Партнёры
+                name: partnersList
+                widget: list
+                label_singular: партнёр
+                fields:
+                  - label: Название
+                    name: name
+                    widget: string
+                  - label: Тип
+                    name: type
+                    widget: string
+                  - label: Описание
+                    name: desc
+                    widget: text
+          - label: Журнал «Мегаполис»
+            name: journal
+            widget: object
+            collapsed: true
+            fields:
+              - label: Заголовок героя
+                name: hero_title
+                widget: string
+              - label: Подзаголовок героя
+                name: hero_subtitle
+                widget: text
+              - label: Интервью — заголовок секции
+                name: interviews_section_title
+                widget: string
+              - label: Интервью — подзаголовок
+                name: interviews_section_subtitle
+                widget: text
+              - label: Династии — заголовок
+                name: dynasties_section_title
+                widget: string
+              - label: Династии — подзаголовок
+                name: dynasties_section_subtitle
+                widget: text
+              - label: Азбука — заголовок
+                name: alphabet_section_title
+                widget: string
+              - label: Азбука — подзаголовок
+                name: alphabet_section_subtitle
+                widget: text
+              - label: Предприятия — заголовок
+                name: enterprises_section_title
+                widget: string
+              - label: Предприятия — подзаголовок
+                name: enterprises_section_subtitle
+                widget: text
+              - label: Выпуски журнала
+                name: editions
+                widget: list
+                label_singular: выпуск
+                fields:
+                  - label: Номер
+                    name: number
+                    widget: string
+                  - label: Дата
+                    name: date
+                    widget: string
+                  - label: Название
+                    name: title
+                    widget: string
+                  - label: Страниц
+                    name: pages
+                    widget: number
+                    value_type: int
+              - label: Анонсы интервью (карточки)
+                name: interviews
+                widget: list
+                label_singular: интервью
+                fields:
+                  - label: Профессия
+                    name: profession
+                    widget: string
+                  - label: Сфера
+                    name: field
+                    widget: string
+                  - label: Цитата
+                    name: quote
+                    widget: text
+                  - label: Текст кнопки
+                    name: read_more_label
+                    widget: string
+              - label: Династии
+                name: dynasties
+                widget: list
+                label_singular: династия
+                fields:
+                  - label: Название
+                    name: title
+                    widget: string
+                  - label: Профессия
+                    name: profession
+                    widget: string
+                  - label: Поколений
+                    name: generations
+                    widget: number
+                    value_type: int
+                  - label: Описание
+                    name: desc
+                    widget: text
+              - label: Азбука профессий
+                name: alphabetLetters
+                widget: list
+                label_singular: буква
+                fields:
+                  - label: Буква
+                    name: letter
+                    widget: string
+                  - label: Профессии
+                    name: professions
+                    widget: list
+                    label_singular: профессия
+                    field:
+                      label: Строка
+                      name: line
+                      widget: string
+          - label: Проектория
+            name: projectoria
+            widget: object
+            collapsed: true
+            fields:
+              - label: Заголовок героя
+                name: hero_title
+                widget: string
+              - label: Подзаголовок героя
+                name: hero_subtitle
+                widget: text
+              - label: Локация — заголовок
+                name: location_section_title
+                widget: string
+              - label: Локация — подзаголовок
+                name: location_section_subtitle
+                widget: text
+              - label: Карта — заголовок
+                name: map_card_title
+                widget: string
+              - label: Карта — строка 1
+                name: map_placeholder_line1
+                widget: string
+              - label: Карта — строка 2
+                name: map_placeholder_line2
+                widget: string
+              - label: Подпись под картой
+                name: map_footer
+                widget: string
+              - label: Практики — заголовок
+                name: practices_section_title
+                widget: string
+              - label: Практики — подзаголовок
+                name: practices_section_subtitle
+                widget: text
+              - label: Фирмы — заголовок
+                name: firms_section_title
+                widget: string
+              - label: Фирмы — подзаголовок
+                name: firms_section_subtitle
+                widget: text
+              - label: Диалоги — заголовок
+                name: dialogs_section_title
+                widget: string
+              - label: Диалоги — подзаголовок
+                name: dialogs_section_subtitle
+                widget: text
+              - label: Презентации — заголовок
+                name: presentations_section_title
+                widget: string
+              - label: Презентации — подзаголовок
+                name: presentations_section_subtitle
+                widget: text
+              - label: Подпись кнопки скачивания
+                name: download_label
+                widget: string
+              - label: Помещения проектории
+                name: location_rooms
+                widget: list
+                label_singular: помещение
+                fields:
+                  - label: Название
+                    name: name
+                    widget: string
+                  - label: Где
+                    name: loc
+                    widget: string
+                  - label: Описание
+                    name: desc
+                    widget: text
+              - label: Этажи (план)
+                name: floors
+                widget: list
+                label_singular: этаж
+                fields:
+                  - label: Этаж
+                    name: floor
+                    widget: string
+                  - label: Помещения
+                    name: rooms
+                    widget: string
+              - label: Проектные практики (карточки)
+                name: practices
+                widget: list
+                label_singular: практика
+                fields:
+                  - label: Название
+                    name: title
+                    widget: string
+                  - label: Класс
+                    name: grade
+                    widget: string
+                  - label: Описание
+                    name: desc
+                    widget: text
+                  - label: Статус
+                    name: stage
+                    widget: string
+              - label: Учебные фирмы
+                name: firms
+                widget: list
+                label_singular: фирма
+                fields:
+                  - label: Название
+                    name: name
+                    widget: string
+                  - label: Направление
+                    name: area
+                    widget: string
+                  - label: Участников
+                    name: members
+                    widget: number
+                    value_type: int
+                  - label: Описание
+                    name: desc
+                    widget: text
+              - label: Диалоги с мастерами
+                name: dialogs
+                widget: list
+                label_singular: диалог
+                fields:
+                  - label: Профессия
+                    name: profession
+                    widget: string
+                  - label: Сфера
+                    name: field
+                    widget: string
+                  - label: Дата
+                    name: date
+                    widget: string
+                  - label: Тема
+                    name: topic
+                    widget: string
+              - label: Презентации
+                name: presentations
+                widget: list
+                label_singular: презентация
+                fields:
+                  - label: Название
+                    name: title
+                    widget: string
+                  - label: Формат
+                    name: format
+                    widget: string
+                  - label: Описание
+                    name: desc
+                    widget: text
+          - label: События
+            name: eventsPage
+            widget: object
+            collapsed: true
+            fields:
+              - label: Заголовок героя
+                name: hero_title
+                widget: string
+              - label: Подзаголовок героя
+                name: hero_subtitle
+                widget: text
+              - label: Афиша — заголовок
+                name: poster_section_title
+                widget: string
+              - label: Афиша — подзаголовок
+                name: poster_section_subtitle
+                widget: text
+              - label: Фото — заголовок
+                name: photos_section_title
+                widget: string
+              - label: Фото — подзаголовок
+                name: photos_section_subtitle
+                widget: text
+              - label: Видео — заголовок
+                name: video_section_title
+                widget: string
+              - label: Видео — подзаголовок
+                name: video_section_subtitle
+                widget: text
+              - label: Рефлексия — заголовок
+                name: reflection_section_title
+                widget: string
+              - label: Рефлексия — подзаголовок
+                name: reflection_section_subtitle
+                widget: text
+              - label: Мероприятия (афиша)
+                name: events
+                widget: list
+                label_singular: мероприятие
+                fields:
+                  - label: Название
+                    name: title
+                    widget: string
+                  - label: Дата
+                    name: date
+                    widget: string
+                  - label: Время
+                    name: time
+                    widget: string
+                  - label: Место
+                    name: location
+                    widget: string
+                  - label: Статус
+                    name: status
+                    widget: string
+                  - label: Описание
+                    name: desc
+                    widget: text
+                  - label: Участников
+                    name: participants
+                    widget: number
+                    value_type: int
+              - label: Фотоотчёты
+                name: photos
+                widget: list
+                label_singular: альбом
+                fields:
+                  - label: Название
+                    name: title
+                    widget: string
+                  - label: Фото
+                    name: count
+                    widget: number
+                    value_type: int
+                  - label: Дата
+                    name: date
+                    widget: string
+              - label: Видео
+                name: videos
+                widget: list
+                label_singular: ролик
+                fields:
+                  - label: Название
+                    name: title
+                    widget: string
+                  - label: Длительность
+                    name: duration
+                    widget: string
+                  - label: Дата
+                    name: date
+                    widget: string
+              - label: Рефлексия (отзывы)
+                name: reflections
+                widget: list
+                label_singular: отзыв
+                fields:
+                  - label: Автор
+                    name: name
+                    widget: string
+                  - label: Текст
+                    name: text
+                    widget: text
+          - label: Офис «Профи-Старт»
+            name: office
+            widget: object
+            collapsed: true
+            fields:
+              - label: Заголовок героя
+                name: hero_title
+                widget: string
+              - label: Подзаголовок героя
+                name: hero_subtitle
+                widget: text
+              - label: Тесты — заголовок
+                name: tests_section_title
+                widget: string
+              - label: Тесты — подзаголовок
+                name: tests_section_subtitle
+                widget: text
+              - label: Самоанализ — заголовок
+                name: analysis_section_title
+                widget: string
+              - label: Самоанализ — подзаголовок
+                name: analysis_section_subtitle
+                widget: text
+              - label: Рекомендации — заголовок
+                name: recommendations_section_title
+                widget: string
+              - label: Рекомендации — подзаголовок
+                name: recommendations_section_subtitle
+                widget: text
+              - label: Маршруты — заголовок
+                name: routes_section_title
+                widget: string
+              - label: Маршруты — подзаголовок
+                name: routes_section_subtitle
+                widget: text
+              - label: Проекты — заголовок
+                name: projects_section_title
+                widget: string
+              - label: Проекты — подзаголовок
+                name: projects_section_subtitle
+                widget: text
+              - label: Вузы — заголовок
+                name: education_section_title
+                widget: string
+              - label: Вузы — подзаголовок
+                name: education_section_subtitle
+                widget: text
+              - label: Текст кнопки «Пройти тест»
+                name: test_button_label
+                widget: string
+              - label: Тесты (карточки)
+                name: tests
+                widget: list
+                label_singular: тест
+                fields:
+                  - label: Название
+                    name: name
+                    widget: string
+                  - label: Описание
+                    name: desc
+                    widget: text
+                  - label: Время
+                    name: time
+                    widget: string
+                  - label: Вопросов
+                    name: questions
+                    widget: number
+                    value_type: int
+              - label: Шаги самоанализа
+                name: analysisSteps
+                widget: list
+                label_singular: шаг
+                fields:
+                  - label: Номер шага
+                    name: step
+                    widget: number
+                    value_type: int
+                  - label: Заголовок
+                    name: title
+                    widget: string
+                  - label: Описание
+                    name: desc
+                    widget: text
+              - label: Рекомендации по профилям
+                name: recommendations
+                widget: list
+                label_singular: группа
+                fields:
+                  - label: Заголовок группы
+                    name: title
+                    widget: string
+                  - label: Пункты
+                    name: items
+                    widget: list
+                    label_singular: пункт
+                    field:
+                      label: Строка
+                      name: line
+                      widget: string
+              - label: Профориентационные маршруты
+                name: routes
+                widget: list
+                label_singular: маршрут
+                fields:
+                  - label: Название
+                    name: name
+                    widget: string
+                  - label: Шаги
+                    name: steps
+                    widget: list
+                    label_singular: шаг
+                    field:
+                      label: Строка
+                      name: line
+                      widget: string
+              - label: Проекты
+                name: projects
+                widget: list
+                label_singular: проект
+                fields:
+                  - label: Название
+                    name: name
+                    widget: string
+                  - label: Описание
+                    name: desc
+                    widget: text
+                  - label: Срок
+                    name: duration
+                    widget: string
+              - label: Образовательные учреждения
+                name: educationInstitutions
+                widget: list
+                label_singular: учреждение
+                fields:
+                  - label: Название
+                    name: name
+                    widget: string
+                  - label: Тип
+                    name: type
+                    widget: string
+                  - label: Направления / области
+                    name: areas
+                    widget: list
+                    label_singular: пункт
+                    field:
+                      label: Строка
+                      name: line
+                      widget: string
+          - label: Вопрос–ответ
+            name: faq
+            widget: object
+            collapsed: true
+            fields:
+              - label: Заголовок героя
+                name: hero_title
+                widget: string
+              - label: Подзаголовок героя
+                name: hero_subtitle
+                widget: text
+              - label: Секция FAQ — заголовок
+                name: faq_section_title
+                widget: string
+              - label: Форма вопроса — заголовок
+                name: ask_section_title
+                widget: string
+              - label: Сообщение после отправки
+                name: success_message
+                widget: text
+              - label: Как отвечаем — заголовок
+                name: how_we_title
+                widget: string
+              - label: Как отвечаем — пункты
+                name: how_we_items
+                widget: list
+                label_singular: пункт
+                field:
+                  label: Строка
+                  name: line
+                  widget: string
+              - label: Вопросы и ответы
+                name: faq_items
+                widget: list
+                label_singular: пара
+                fields:
+                  - label: Вопрос
+                    name: q
+                    widget: string
+                  - label: Ответ
+                    name: a
+                    widget: text
+          - label: Подвал сайта
+            name: footer
+            widget: object
+            collapsed: true
+            fields:
+              - label: Слоган
+                name: tagline
+                widget: string
+              - label: Доп. строка слогана
+                name: tagline_extra
+                widget: string
+              - label: Бейдж года
+                name: year_badge
+                widget: string
+              - label: Копирайт
+                name: copyright
+                widget: string
+              - label: Город
+                name: city
+                widget: string
+              - label: Плейсхолдер карты в подвале
+                name: map_placeholder
+                widget: string
+          - label: Карточки (общие / классы / проекты и т.д.)
+            name: cards
+            widget: list
+            label_singular: карточка
+            fields:
+              - label: Заголовок
+                name: title
+                widget: string
+              - label: Описание
+                name: description
+                widget: text
+              - label: Текст кнопки
+                name: button_text
+                widget: string
+                default: Подробнее
+              - label: Ссылка
+                name: link
+                widget: string
+                required: false
+              - label: Текст модалки (простой)
+                name: modal_content
+                widget: text
+                required: false
+              - label: Число (напр. учащихся)
+                name: count
+                widget: number
+                required: false
+                value_type: int
+              - label: Подзаголовок
+                name: subtitle
+                widget: string
+                required: false
+              - label: Статус этапа
+                name: stage
+                widget: string
+                required: false
+          - label: Контакты
+            name: contacts
+            widget: list
+            label_singular: контакт
+            fields:
+              - label: Тип
+                name: type
+                widget: string
+              - label: Значение
+                name: value
+                widget: string
+              - label: Иконка
+                name: icon
+                widget: string
+                required: false
+              - label: Подпись
+                name: sub
+                widget: string
+                required: false
+          - label: Текстовые блоки
+            name: text_blocks
+            widget: list
+            label_singular: блок
+            fields:
+              - label: Заголовок
+                name: heading
+                widget: string
+              - label: Содержание
+                name: content
+                widget: markdown
+          - label: Проектные практики — модалки «Подробнее»
+            name: project_practices
+            widget: list
+            label_singular: практика
+            fields:
+              - label: Заголовок кнопки / карточки
+                name: title
+                widget: string
+              - label: Краткое описание (превью)
+                name: preview_text
+                widget: text
+                required: false
+              - label: Полный текст
+                name: full_content
+                widget: markdown
+              - label: Тип контента
+                name: content_type
+                widget: select
+                options:
+                  - text
+                  - image
+                  - video
+                  - link
+                  - gallery
+                default: text
+              - label: Медиа
+                name: media
+                widget: list
+                required: false
+                fields:
+                  - label: URL
+                    name: url
+                    widget: string
+                  - label: Описание
+                    name: alt
+                    widget: string
+                    required: false
+              - label: Внешняя ссылка
+                name: external_link
+                widget: string
+                required: false
+              - label: Иконка/эмодзи
+                name: icon
+                widget: string
+                required: false
+                default: 📌
+          - label: "Сообщества — модалки классов (ключ в JSON: communities)"
+            name: communities
+            widget: list
+            label_singular: класс
+            fields:
+              - label: Название
+                name: name
+                widget: string
+              - label: Описание
+                name: description
+                widget: text
+              - label: Полная информация
+                name: full_info
+                widget: markdown
+                required: false
+              - label: Расписание
+                name: schedule
+                widget: string
+                required: false
+              - label: Ссылка на запись
+                name: signup_link
+                widget: string
+                required: false
+              - label: Контакты руководителя
+                name: contact
+                widget: string
+                required: false
+          - label: Журнал — предприятия (модалки)
+            name: journal_companies
+            widget: list
+            label_singular: предприятие
+            fields:
+              - label: Название
+                name: name
+                widget: string
+              - label: Кратко
+                name: short_desc
+                widget: text
+              - label: Полная статья
+                name: full_article
+                widget: markdown
+              - label: Источник
+                name: source_link
+                widget: string
+                required: false
+          - label: Журнал — интервью (модалки)
+            name: journal_interviews
+            widget: list
+            label_singular: интервью
+            fields:
+              - label: Заголовок
+                name: title
+                widget: string
+              - label: Анонс
+                name: preview
+                widget: text
+              - label: Полный текст
+                name: content
+                widget: markdown
+              - label: Фото
+                name: media
+                widget: image
+                required: false
+          - label: "События — модалки по клику на афишу (ключ в JSON: events)"
+            name: events
+            widget: list
+            label_singular: событие
+            fields:
+              - label: Заголовок
+                name: title
+                widget: string
+              - label: Полный текст
+                name: full_content
+                widget: markdown
+              - label: Тип контента
+                name: content_type
+                widget: select
+                options:
+                  - text
+                  - image
+                  - video
+                  - link
+                  - gallery
+                default: text
+              - label: Медиа
+                name: media
+                widget: list
+                required: false
+                fields:
+                  - label: URL
+                    name: url
+                    widget: string
+                  - label: Описание
+                    name: alt
+                    widget: string
+                    required: false
+              - label: Внешняя ссылка
+                name: external_link
+                widget: string
+                required: false
+          - label: Офис — модалки по кнопке теста
+            name: office_features
+            widget: list
+            label_singular: тест
+            fields:
+              - label: Заголовок кнопки / карточки
+                name: title
+                widget: string
+              - label: Краткое описание (превью)
+                name: preview_text
+                widget: text
+                required: false
+              - label: Полный текст
+                name: full_content
+                widget: markdown
+              - label: Тип контента
+                name: content_type
+                widget: select
+                options:
+                  - text
+                  - image
+                  - video
+                  - link
+                  - gallery
+                default: text
+              - label: Медиа
+                name: media
+                widget: list
+                required: false
+                fields:
+                  - label: URL
+                    name: url
+                    widget: string
+                  - label: Описание
+                    name: alt
+                    widget: string
+                    required: false
+              - label: Внешняя ссылка
+                name: external_link
+                widget: string
+                required: false
+              - label: Иконка/эмодзи
+                name: icon
+                widget: string
+                required: false
+                default: 📌
